@@ -1,19 +1,19 @@
-import requests
 from datetime import datetime, time
 import smtplib
+import os
 
 # email secrets and emails
-MY_EMAIL = "dylansteggerda@gmail.com"
-TO_EMAIL = "steggerda.dylan@outlook.com"
-PASSWORD = "ppaqaowbcbaxgiae"
+MY_EMAIL = os.environ.get("MY_EMAIL")
+TO_EMAIL = os.environ.get("TO_EMAIL")
+PASSWORD = os.environ.get("PASSWORD")
 
 # stock price api parameters and secrets
-STOCK_PRICE_API_KEY = "6YU3HRAE5XOPBWYM"
-STOCK_SYMBOl = "TSLA"
+STOCK_PRICE_API_KEY = os.environ.get("STOCK_PRICE_API_KEY")
+STOCK_SYMBOL = os.environ.get("STOCK_SYMBOL")
 stock_url = "https://www.alphavantage.co/query"
 stock_parameters= {
     "function": "TIME_SERIES_DAILY",
-    "symbol": STOCK_SYMBOl,
+    "symbol": STOCK_SYMBOL,
     "apikey": STOCK_PRICE_API_KEY
 }
 
@@ -32,7 +32,7 @@ NEWS_API_KEY = "744a5c4a74d14d2e86ac5a7aa7eda8e0"
 news_url = "https://newsapi.org/v2/everything"
 news_parameters = {
     "apiKey": NEWS_API_KEY,
-    "q": STOCK_SYMBOl,
+    "q": STOCK_SYMBOL,
     "from": close_date_before_yesterday,
     "to": close_date_yesterday
 }
@@ -64,8 +64,8 @@ if percent_change > 1 or percent_change < -1:
         connection.sendmail(
             from_addr=MY_EMAIL,
             to_addrs=TO_EMAIL,
-            msg=(f"Subject: Stock Alert {STOCK_SYMBOl}:\n\n"
-                 f"{STOCK_SYMBOl} has changed by {percent_change}% from yesterday's closing price to the day before."
+            msg=(f"Subject: Stock Alert {STOCK_SYMBOL}:\n\n"
+                 f"{STOCK_SYMBOL} has changed by {percent_change}% from yesterday's closing price to the day before."
                  f"Relevant News Article from the Time Between Change:\n"
                  f"{news_paragraph}".encode('utf-8'))
         )
