@@ -42,6 +42,8 @@ jobs:
           # Your secrets are available as environment variables
           # Add more secrets in Settings > Secrets > Actions
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+          STOCK_PRICE_API_KEY: ${{ secrets.STOCK_PRICE_API_KEY }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
         run: python main.py
