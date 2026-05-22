@@ -53,7 +53,9 @@ percent_change = abs(round((((yesterday_close_price / before_yesterday_close_pri
 # if percent change is more than 10% +/- then
 if percent_change > 10:
     news_data = requests.get(news_url, params=news_parameters).json()
-    for article in news_data["articles"]:
+    articles = news_data["articles"]
+    top_articles = articles[:3]
+    for article in top_articles:
         news_source = article["source"]["name"]
         article_title = article["title"]
         url = article["url"]
