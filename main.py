@@ -48,9 +48,9 @@ yesterday_close_price = float(daily_stock_data[f"{date_yesterday}"]["4. close"])
 print(yesterday_close_price)
 before_yesterday_close_price = float(daily_stock_data[f"{date_before_yesterday}"]["4. close"])
 print(before_yesterday_close_price)
-percent_change = round((((yesterday_close_price / before_yesterday_close_price) - 1) * 100), 2)
+percent_change = abs(round((((yesterday_close_price / before_yesterday_close_price) - 1) * 100), 2))
 # if percent change is more than 10% +/- then
-if percent_change > 1 or percent_change < -1:
+if percent_change > 10:
     news_data = requests.get(news_url, params=news_parameters).json()
     for article in news_data["articles"]:
         news_source = article["source"]["name"]
