@@ -41,7 +41,7 @@ jobs:
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_PASSWORD is configured"
+            echo "PASSWORD is configured"
           fi
           
           if [ -z "$STOCK_PRICE_API_KEY" ]; then
@@ -49,7 +49,7 @@ jobs:
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_PASSWORD is configured"
+            echo "STOCK_PRICE_API_KEY is configured"
           fi
 
           if [ -z "$NEWS_API_KEY ]; then
@@ -57,7 +57,7 @@ jobs:
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_PASSWORD is configured"
+            echo "NEWS_API_KEY is configured"
           fi
 
           echo ""
