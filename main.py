@@ -19,8 +19,8 @@ stock_parameters= {
 
 # get current day and previous time data
 date_today = datetime.now().date()
-date_yesterday = date_today.__replace__(day=(date_today.day-1))
-date_before_yesterday = date_yesterday.__replace__(day=(date_yesterday.day-1))
+date_yesterday = date_today.replace(day=(date_today.day-1))
+date_before_yesterday = date_yesterday.replace(day=(date_yesterday.day-1))
 
 # closing date times for api format
 closing_time = "T20:00:00"
