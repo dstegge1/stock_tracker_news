@@ -11,6 +11,7 @@ PASSWORD = os.environ.get("PASSWORD")
 # stock price api parameters and secrets
 STOCK_PRICE_API_KEY = os.environ.get("STOCK_PRICE_API_KEY")
 STOCK_SYMBOL = "TSLA"
+COMPANY_NAME = "Tesla"
 stock_url = "https://www.alphavantage.co/query"
 stock_parameters= {
     "function": "TIME_SERIES_DAILY",
@@ -33,7 +34,7 @@ NEWS_API_KEY = "744a5c4a74d14d2e86ac5a7aa7eda8e0"
 news_url = "https://newsapi.org/v2/everything"
 news_parameters = {
     "apiKey": NEWS_API_KEY,
-    "q": STOCK_SYMBOL,
+    "qInTitle": COMPANY_NAME,
     "from": close_date_before_yesterday,
     "to": close_date_yesterday
 }
