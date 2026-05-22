@@ -10,11 +10,11 @@ PASSWORD = os.environ.get("PASSWORD")
 
 # stock price api parameters and secrets
 STOCK_PRICE_API_KEY = os.environ.get("STOCK_PRICE_API_KEY")
-STOCK_SYMBOL = os.environ.get("STOCK_SYMBOL")
+STOCK_SYMBOL = "TSLA"
 stock_url = "https://www.alphavantage.co/query"
 stock_parameters= {
     "function": "TIME_SERIES_DAILY",
-    "symbol": "TSLA",
+    "symbol": STOCK_SYMBOL,
     "apikey": STOCK_PRICE_API_KEY
 }
 
