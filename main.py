@@ -41,7 +41,7 @@ news_paragraph = ""
 
 # use requests to import data from api
 stock_data = requests.get(url=stock_url, params= stock_parameters)
-daily_stock_data = stock_data.json()["Time Series (Daily)"]
+daily_stock_data = stock_data.json()
 
 # get yesterday's closing price and compare to the previous day
 yesterday_close_price = float(daily_stock_data[f"{date_yesterday}"]["4. close"])
