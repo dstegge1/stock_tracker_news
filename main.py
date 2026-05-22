@@ -14,7 +14,7 @@ STOCK_SYMBOL = os.environ.get("STOCK_SYMBOL")
 stock_url = "https://www.alphavantage.co/query"
 stock_parameters= {
     "function": "TIME_SERIES_DAILY",
-    "symbol": STOCK_SYMBOL,
+    "symbol": "TSLA",
     "apikey": STOCK_PRICE_API_KEY
 }
 
