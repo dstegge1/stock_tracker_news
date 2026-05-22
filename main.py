@@ -1,3 +1,4 @@
+import requests
 from datetime import datetime, time
 import smtplib
 import os
